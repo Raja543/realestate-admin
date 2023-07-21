@@ -1,29 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
+import { useAuth } from "../../AuthContext";
 
 const Login = () => {
-  const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const { login } = useAuth();
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
 
   const handleLogin = (e) => {
     e.preventDefault();
 
     if (email.trim() === "" || password.trim() === "") {
-      toast.error("Please enter your email and password");
       return;
     }
     signInWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        toast.success("Login successful", {
-          position: toast.POSITION.TOP_CENTER,
-          autoClose: 1000,
-        });
-        navigate("/");
+      .then((credentials) => {
+        login(credentials.user);
       })
       .catch((error) => {
         if (error.code === "auth/invalid-email") {
