@@ -1,11 +1,24 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../../AuthContext";
+import { auth } from "../../firebase";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  const { logout } = useAuth();
+
+  const handleLogout = async () => {
+    try {
+      await auth.signOut();
+      logout();
+    } catch (error) {
+      console.log("Error logging out:", error);
+    }
   };
 
   return (
@@ -30,12 +43,12 @@ const Navbar = () => {
               Home
             </li>
           </NavLink>
-          <NavLink to="/property-search">
+          <NavLink to="/findproperty">
             <li className="text-gray-800 text-xl hover:text-gray-500 pr-4">
               Find Property
             </li>
           </NavLink>
-          <NavLink to="/Property-list">
+          <NavLink to="/listproperty">
             <li className="text-gray-800 text-xl hover:text-gray-500 pr-2">
               List Property
             </li>
@@ -45,7 +58,7 @@ const Navbar = () => {
               Agents
             </li>
           </NavLink>
-          <NavLink to="/contact">
+          <NavLink to="/contacts">
             <li className="text-gray-800 text-xl hover:text-gray-500 pr-2">
               Contact Us
             </li>
@@ -53,8 +66,11 @@ const Navbar = () => {
         </ul>
         <div className="md:flex md:items-center hidden space-x-4">
           <NavLink to="/login">
-            <button className="bg-orange max-w-fit text-textwhite font-[Albert-sans] py-2 px-6 rounded-md duration-500">
-              Login
+            <button
+              className="bg-orange max-w-fit text-textwhite font-[Albert-sans] py-2 px-6 rounded-md duration-500"
+              onClick={handleLogout}
+            >
+              Logout
             </button>
           </NavLink>
         </div>
@@ -102,12 +118,14 @@ const Navbar = () => {
                   List Property
                 </li>
               </NavLink>
-            
-             
+
               <NavLink to="/login">
                 <li>
-                  <button className="bg-orange max-w-fit text-textwhite font-[Albert-sans] py-2 px-6 rounded-md duration-500 my-2 mx-2">
-                    Login
+                  <button
+                    className="bg-orange max-w-fit text-textwhite font-[Albert-sans] py-2 px-6 rounded-md duration-500 my-2 mx-2"
+                    onClick={handleLogout}
+                  >
+                    Logout
                   </button>
                 </li>
               </NavLink>

@@ -1,0 +1,33 @@
+.upperContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.adminTable {
+    padding: 32px;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.tableHead {
+    background-color: rgb(41, 57, 57);
+    color: white;
+    height: 50px;
+}
+
+.searchInp input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100px;
+}
+
+.tableBody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.tableBody tr:hover {
+    background-color: #e9e9e9;
+}
