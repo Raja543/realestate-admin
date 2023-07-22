@@ -7,8 +7,8 @@ import Loginpage from "./pages/Loginpage";
 import Homepage from "./pages/Homepage";
 import FindProperty from "./pages/FindProperty";
 import ListProperty from "./pages/ListProperty";
-import Agents from "./pages/Contacts";
-import Contacts from "./pages/Agents";
+import Agents from "./pages/Agents";
+import Contacts from "./pages/Contacts";
 
 function App() {
   return (
