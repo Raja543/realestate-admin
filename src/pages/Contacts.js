@@ -11,9 +11,8 @@ import {
 import { db } from "../firebase";
 import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
-import "./Contact.css";
 
-const Agents = () => {
+const Contacts = () => {
   const [filter, setFilter] = useState("all");
   const [sortFilter, setSortFilter] = useState("latest");
   const [user, setUser] = useState([]);
@@ -102,14 +101,12 @@ const Agents = () => {
   return (
     <>
       <Navbar />
-      <div>
-        <div className="upperContainer">
-          <div className="filterContainer">
-            <label htmlFor="status-filter">
-              <strong>Filter:</strong>
-            </label>
+      <div className="p-16">
+        <div className="flex justify-between mb-4">
+          <div className="flex space-x-2">
+            <strong>Filter:</strong>
             <select
-              id="status-filter"
+              className="border p-1 rounded"
               value={filter}
               onChange={handleFilterChange}
             >
@@ -118,12 +115,10 @@ const Agents = () => {
               <option value="progress">InProgress</option>
               <option value="review">Done</option>
             </select>
-            <div className="filterSection">
-              <label htmlFor="sort-filter">
-                <strong>&nbsp;&nbsp;&nbsp;Sort By:</strong>
-              </label>
+            <div className="flex space-x-2">
+              <strong>Sort By:</strong>
               <select
-                id="sort-filter"
+                className="border p-1 rounded"
                 value={sortFilter}
                 onChange={handleSortFilterChange}
               >
@@ -132,44 +127,44 @@ const Agents = () => {
               </select>
             </div>
           </div>
-          <div className="searchInp">
+          <div>
             <input
               type="text"
               placeholder="Search by Subject"
               value={searchSubject}
               onChange={handleSearchChange}
+              className="border p-2 rounded"
             />
           </div>
         </div>
-        <div className="tableContainer">
-          <table className="adminTable">
-            <thead className="tableHead">
+        <div className="overflow-x-auto">
+          <table className="w-full p-8">
+            <thead className="bg-gray-700 text-white h-10">
               <tr>
-                <th>NAME</th>
-                <th>MOBILE</th>
-                <th>EMAIL</th>
-                <th>SUBJECT</th>
-                <th>DESCRIPTION</th>
-                <th>TIME</th>
-                <th>STATUS</th>
+                <th className="px-4">NAME</th>
+                <th className="px-4">MOBILE</th>
+                <th className="px-4">EMAIL</th>
+                <th className="px-4">SUBJECT</th>
+                <th className="px-4">DESCRIPTION</th>
+                <th className="px-4">TIME</th>
+                <th className="px-4">STATUS</th>
               </tr>
             </thead>
-            <tbody className="tableBody">
+            <tbody>
               {filteredUsers.map((user) => (
-                <tr key={user.id}>
-                  <td>{user.name}</td>
-                  <td>{user.mobile}</td>
-                  <td>{user.email}</td>
-                  <td>{user.subject}</td>
-                  <td>{user.description}</td>
-                  <td>{user.time}</td>
-                  <td>
+                <tr key={user.id} className="even:bg-gray-200 hover:bg-gray-300">
+                  <td className="px-4">{user.name}</td>
+                  <td className="px-4">{user.mobile}</td>
+                  <td className="px-4">{user.email}</td>
+                  <td className="px-4">{user.subject}</td>
+                  <td className="px-4">{user.description}</td>
+                  <td className="px-4">{user.time}</td>
+                  <td className="px-4">
                     <div className="selectContainer">
-                      <label htmlFor={`status-${user.id}`}></label>
                       <select
-                        id={`status-${user.id}`}
                         value={status[user.id] || "unviewed"}
                         onChange={(event) => handleStatusChange(event, user.id)}
+                        className="border p-1 rounded"
                       >
                         <option value="unviewed">Backlog</option>
                         <option value="progress">InProgress</option>
@@ -188,4 +183,4 @@ const Agents = () => {
   );
 };
 
-export default Agents;
+export default Contacts;

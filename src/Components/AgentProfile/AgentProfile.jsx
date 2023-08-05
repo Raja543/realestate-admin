@@ -38,12 +38,18 @@ const AgentProfile = ({ agentId , onDelete  }) => {
 
   return (
     <div className="p-4 border border-gray-200 rounded shadow mr-8">
+      <div className="w-32 h-32 rounded-full overflow-hidden">
+        <img src={agent.image} alt="Agent" />
+      </div>
       <h2 className="text-xl font-bold mb-2">{agent.name}</h2>
       <p className="mb-2">
         Email: <span className="font-medium">{agent.email}</span>
       </p>
       <p className="mb-2">
         Phone: <span className="font-medium">{agent.phone}</span>
+      </p>
+      <p className="mb-2">
+        Designation : <span className="font-medium">{agent.designation}</span>
       </p>
       <button onClick={handleDelete}>Delete</button>
     </div>
