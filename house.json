@@ -1,0 +1,187 @@
+[
+    {
+      "housename": "Tranquil Haven",
+      "location": "Mumbai, Maharashtra",
+      "price": 14500000,
+      "propertyType": "Residential",
+      "bedrooms": 3,
+      "area": 1600,
+      "furnitureType": "Semi-furnished"
+    },
+    {
+      "housename": "Elegant Retreat",
+      "location": "Bangalore, Karnataka",
+      "price": 9800000,
+      "propertyType": "Residential",
+      "bedrooms": 2,
+      "area": 1300,
+      "furnitureType": "Fully-furnished"
+    },
+    {
+      "housename": "Cozy Corner House",
+      "location": "Delhi, NCR",
+      "price": 7600000,
+      "propertyType": "Residential",
+      "bedrooms": 2,
+      "area": 1000,
+      "furnitureType": "Non-furnished"
+    },
+    {
+      "housename": "Urban Oasis PG",
+      "location": "Chennai, Tamil Nadu",
+      "price": 20000,
+      "propertyType": "PG/Co-living",
+      "bedrooms": 1,
+      "area": 350,
+      "furnitureType": "Fully-furnished"
+    },
+    {
+      "housename": "Prime Commercial Plaza",
+      "location": "Kolkata, West Bengal",
+      "price": 135000,
+      "propertyType": "Commercial",
+      "area": 1400,
+      "furnitureType": "Non-furnished"
+    },
+    {
+      "housename": "Serene Villa",
+      "location": "Jaipur, Rajasthan",
+      "price": 11500000,
+      "propertyType": "Residential",
+      "bedrooms": 3,
+      "area": 1500,
+      "furnitureType": "Semi-furnished"
+    },
+    {
+      "housename": "Sapphire Heights",
+      "location": "Hyderabad, Telangana",
+      "price": 8400000,
+      "propertyType": "Residential",
+      "bedrooms": 2,
+      "area": 1200,
+      "furnitureType": "Fully-furnished"
+    },
+    {
+      "housename": "Harmony House",
+      "location": "Pune, Maharashtra",
+      "price": 7100000,
+      "propertyType": "Residential",
+      "bedrooms": 2,
+      "area": 950,
+      "furnitureType": "Non-furnished"
+    },
+    {
+      "housename": "Metro View PG",
+      "location": "Mumbai, Maharashtra",
+      "price": 22000,
+      "propertyType": "PG/Co-living",
+      "bedrooms": 1,
+      "area": 400,
+      "furnitureType": "Fully-furnished"
+    },
+    {
+      "housename": "Central Plaza",
+      "location": "Delhi, NCR",
+      "price": 145000,
+      "propertyType": "Commercial",
+      "area": 1800,
+      "furnitureType": "Semi-furnished"
+    },
+    {
+      "housename": "Royal Residency",
+      "location": "Bangalore, Karnataka",
+      "price": 12500000,
+      "propertyType": "Residential",
+      "bedrooms": 3,
+      "area": 1700,
+      "furnitureType": "Fully-furnished"
+    },
+    {
+      "housename": "Tranquil Living PG",
+      "location": "Chennai, Tamil Nadu",
+      "price": 18000,
+      "propertyType": "PG/Co-living",
+      "bedrooms": 1,
+      "area": 320,
+      "furnitureType": "Fully-furnished"
+    },
+    {
+      "housename": "Prime Business Hub",
+      "location": "Mumbai, Maharashtra",
+      "price": 280000,
+      "propertyType": "Commercial",
+      "area": 2400,
+      "furnitureType": "Non-furnished"
+    },
+    {
+      "housename": "Blissful Cottage",
+      "location": "Shimla, Himachal Pradesh",
+      "price": 9800000,
+      "propertyType": "Residential",
+      "bedrooms": 2,
+      "area": 1100,
+      "furnitureType": "Fully-furnished"
+    },
+    {
+      "housename": "Harbor View Villa",
+      "location": "Kochi, Kerala",
+      "price": 7250000,
+      "propertyType": "Residential",
+      "bedrooms": 2,
+      "area": 1000,
+      "furnitureType": "Non-furnished"
+    },
+    {
+      "housename": "Vibrant Heights",
+      "location": "Chandigarh",
+      "price": 16500000,
+      "propertyType": "Residential",
+      "bedrooms": 3,
+      "area": 1800,
+      "furnitureType": "Semi-furnished"
+    },
+    {
+      "housename": "Sunset View PG",
+      "location": "Jaipur, Rajasthan",
+      "price": 21000,
+      "propertyType": "PG/Co-living",
+      "bedrooms": 1,
+      "area": 380,
+      "furnitureType": "Fully-furnished"
+    },
+    {
+      "housename": "Business Plaza",
+      "location": "Bangalore, Karnataka",
+      "price": 155000,
+      "propertyType": "Commercial",
+      "area": 2000,
+      "furnitureType": "Non-furnished"
+    },
+    {
+      "housename": "Lakeside Retreat",
+      "location": "Udaipur, Rajasthan",
+      "price": 11500000,
+      "propertyType": "Residential",
+      "bedrooms": 3,
+      "area": 1400,
+      "furnitureType": "Semi-furnished"
+    },
+    {
+      "housename": "Urban Harmony",
+      "location": "Delhi, NCR",
+      "price": 9800000,
+      "propertyType": "Residential",
+      "bedrooms": 2,
+      "area": 1200,
+      "furnitureType": "Fully-furnished"
+    },
+    {
+      "housename": "Corporate Tower",
+      "location": "Mumbai, Maharashtra",
+      "price": 345000,
+      "propertyType": "Commercial",
+      "area": 2800,
+      "furnitureType": "Non-furnished"
+    }
+  ]
+  

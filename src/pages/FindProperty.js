@@ -5,10 +5,13 @@ import Footer from "../Components/Footer/Footer";
 import { NavLink } from "react-router-dom";
 
 const FindProperty = () => {
+  const [housename, sethouseName] = useState("");
   const [location, setLocation] = useState("");
-  const [priceRange, setPriceRange] = useState("");
+  const [price, setPrice] = useState("");
   const [propertyType, setPropertyType] = useState("");
+  const [furnitureType, setfurnitureType] = useState("");
   const [bedrooms, setBedrooms] = useState("");
+  const [area, setArea] = useState("");
   const [properties, setProperties] = useState([]);
   const [matchingProperties, setMatchingProperties] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -18,10 +21,13 @@ const FindProperty = () => {
     e.preventDefault();
 
     const searchCriteria = {
+      housename,
       location,
-      priceRange,
+      price,
       propertyType,
       bedrooms,
+      area,
+      furnitureType,
     };
 
     try {
@@ -80,6 +86,10 @@ const FindProperty = () => {
           return false;
         }
 
+        if (searchCriteria.area && property.area !== searchCriteria.area) {
+          return false;
+        }
+
         // Add other filtering conditions as needed
 
         return true;
@@ -100,16 +110,22 @@ const FindProperty = () => {
       const propertiesRef = ref(db, "properties");
       const newPropertyRef = push(propertiesRef);
       await set(newPropertyRef, {
+        housename,
         location,
-        priceRange,
+        price,
         propertyType,
         bedrooms,
+        area,
+        furnitureType,
       });
 
+      sethouseName("");
       setLocation("");
-      setPriceRange("");
+      setPrice("");
       setPropertyType("");
       setBedrooms("");
+      setArea("");
+      setfurnitureType("");
 
       console.log("Property data stored successfully!");
     } catch (error) {
@@ -195,6 +211,18 @@ const FindProperty = () => {
         <div className="mb-4">
           <form onSubmit={handleSearch}>
             <div className="mb-4">
+              <label htmlFor="housename" className="block mb-1">
+                House Name:
+              </label>
+              <input
+                type="text"
+                id="housename"
+                value={housename}
+                onChange={(e) => sethouseName(e.target.value)}
+                className="border border-gray-300 px-2 py-1 rounded"
+              />
+            </div>
+            <div className="mb-4">
               <label htmlFor="location" className="block mb-1">
                 Location:
               </label>
@@ -207,20 +235,16 @@ const FindProperty = () => {
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="priceRange" className="block mb-1">
-                Price Range:
+              <label htmlFor="price" className="block mb-1">
+                Price :
               </label>
-              <select
-                id="priceRange"
-                value={priceRange}
-                onChange={(e) => setPriceRange(e.target.value)}
+              <input
+                type="number"
+                id="price"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
                 className="border border-gray-300 px-2 py-1 rounded"
-              >
-                <option value="">Any</option>
-                <option value="0-100000">$0 - $100,000</option>
-                <option value="100000-200000">$100,000 - $200,000</option>
-                <option value="200000-300000">$200,000 - $300,000</option>
-              </select>
+              ></input>
             </div>
             <div className="mb-4">
               <label htmlFor="propertyType" className="block mb-1">
@@ -233,9 +257,25 @@ const FindProperty = () => {
                 className="border border-gray-300 px-2 py-1 rounded"
               >
                 <option value="">Any</option>
-                <option value="house">House</option>
-                <option value="apartment">Apartment</option>
-                <option value="condo">Condo</option>
+                <option value="residential">Residential</option>
+                <option value="pg/co-liing">PG/Co-living</option>
+                <option value="commercial">Commercial</option>
+              </select>
+            </div>
+            <div className="mb-4">
+              <label htmlFor="propertyType" className="block mb-1">
+                Furniture type:
+              </label>
+              <select
+                id="furnitureType"
+                value={furnitureType}
+                onChange={(e) => setfurnitureType(e.target.value)}
+                className="border border-gray-300 px-2 py-1 rounded"
+              >
+                <option value="">Any</option>
+                <option value="Non-furnished">Non-furnished</option>
+                <option value="Semi-furnished">Semi-furnished</option>
+                <option value="Full-furnished">Full-furnished</option>
               </select>
             </div>
             <div className="mb-4">
@@ -253,6 +293,18 @@ const FindProperty = () => {
                 <option value="2">2</option>
                 <option value="3">3</option>
               </select>
+            </div>
+            <div className="mb-4">
+              <label htmlFor="area" className="block mb-1">
+                Area:
+              </label>
+              <input
+                type="number"
+                id="area"
+                value={area}
+                onChange={(e) => setArea(e.target.value)}
+                className="border border-gray-300 px-2 py-1 rounded"
+              ></input>
             </div>
             <button
               type="submit"
@@ -285,25 +337,34 @@ const FindProperty = () => {
                   className="border border-gray-200 rounded p-4 mb-4"
                 >
                   <h2 className="text-xl font-bold mb-2">
-                    {property.location}
+                    {property.housename}
                   </h2>
                   <p className="text-gray-600 mb-2">
-                    Price: {property.priceRange}
+                    Location: {property.location}
                   </p>
+                  <p className="text-gray-600 mb-2"> Price: {property.price}</p>
                   <p className="text-gray-600 mb-2">
                     Type: {property.propertyType}
                   </p>
                   <p className="text-gray-600 mb-2">
                     Bedrooms: {property.bedrooms}
                   </p>
+                  <p className="text-gray-600 mb-2">Area: {property.area}sqft</p>
+                  <p className="text-gray-600 mb-2">
+                    furnitureType: {property.furnitureType}
+                  </p>
                 </div>
               ))
             : matchingProperties.map((property) => (
                 <div key={property.id} className="bg-gray-100 p-4 mb-4">
-                  <p className="mb-2">Price: {property.priceRange}</p>
+                  <p className="mb-2">Price: {property.price}</p>
                   <p className="mb-2">Location: {property.location}</p>
                   <p className="mb-2">Type: {property.propertyType}</p>
                   <p className="mb-2">Bedrooms: {property.bedrooms}</p>
+                  <p className="mb-2">Area: {property.area}</p>
+                  <p className="mb-2">
+                    furnitureType: {property.furnitureType}
+                  </p>
                   {/* ... Render other property details ... */}
                 </div>
               ))}
